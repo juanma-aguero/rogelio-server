@@ -4,9 +4,11 @@ var empanadas = require('../tools/empanadas');
 
 /* GET home page. */
 router.get('/status', function (req, res, next) {
-    res.json({
-        status: empanadas.getStatus()
-    });
+    res.json(empanadas.getStatus());
+});
+
+router.post('/', function (req, res, next) {
+    res.json(empanadas.abrirPedido());
 });
 
 

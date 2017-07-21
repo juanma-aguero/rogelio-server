@@ -5,8 +5,11 @@ var description = {
     version: "1.0"
 };
 
+const STATUS_IN_PROGRESS = 'in_progress';
+const STATUS_CLOSED = 'closed';
+
 var pedido = {
-    status: 'in progress',
+    status: STATUS_CLOSED,
     items: [
         {
             name: 'jyq',
@@ -20,9 +23,17 @@ var pedido = {
 };
 
 module.exports = {
+
     getDescription: function () {
-        return description;
+        return pedido;
     },
+
+    abrirPedido: function () {
+        pedido.status = STATUS_IN_PROGRESS;
+        pedido.items = [];
+        return pedido;
+    },
+
     getStatus: function () {
         return pedido;
     }
