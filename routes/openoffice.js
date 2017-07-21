@@ -9,6 +9,13 @@ router.get('/status', function (req, res, next) {
     });
 });
 
+router.get('/close', function (req, res, next) {
+    openoffice.setStatus('closed', 'unknown');
+    res.json({
+        status: openoffice.getStatus()
+    });
+});
+
 router.post('/open', function (req, res) {
 
     var status = req.body.status;
