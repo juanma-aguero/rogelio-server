@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var tools = require('./routes/tools');
 var openoffice = require('./routes/openoffice');
+var empanadas = require('./routes/empanadas');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', index);
 app.use('/tools', tools);
 app.use('/users', users);
 app.use('/openoffice', openoffice);
+app.use('/empanadas', empanadas);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
