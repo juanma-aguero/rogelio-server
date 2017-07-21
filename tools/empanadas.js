@@ -48,11 +48,20 @@ module.exports = {
     abrirPedido: function () {
         pedido.status = STATUS_IN_PROGRESS;
         pedido.items = [];
+        slack.send("Arrancamos con el pedido de empanadas...");
         return pedido;
     },
 
     cerrarPedido: function () {
         pedido.status = STATUS_CLOSED;
+
+        var message = "El pedido es de \n ";
+        for (var i = 0; i < pedido.items.length; i++) {
+            var item = pedido.items[i];
+            message += item.name + ' : ' + item.quantity + ' \n ';
+        }
+        slack.send(message);
+
         return pedido;
     },
 
